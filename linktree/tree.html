@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmad Sahroni — Linktree</title>
+  <style>
+    :root {
+      --bg: radial-gradient(circle at top left, #0f172a, #1e293b 60%, #020617);
+      --card-bg: rgba(30,41,59,0.75);
+      --accent: #06b6d4;
+      --accent-hover: #0ea5e9;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 40px 30px;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+      animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(6,182,212,0.4);
+      transition: transform 0.3s ease;
+    }
+    img:hover { transform: scale(1.05); }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 26px;
+      letter-spacing: 0.5px;
+    }
+
+    .links a {
+      display: block;
+      background: var(--accent);
+      color: #0f172a;
+      padding: 14px;
+      margin: 12px 0;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      box-shadow: 0 4px 12px rgba(6,182,212,0.4);
+      transition: all 0.3s ease;
+    }
+    .links a:hover {
+      transform: translateY(-3px);
+      background: var(--accent-hover);
+      box-shadow: 0 6px 16px rgba(14,165,233,0.6);
+    }
+
+    .theme-toggle {
+      margin-top: 18px;
+      background: transparent;
+      border: 1px solid var(--muted);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.1);
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 26px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="https://nasdemdprri.id/storage/app/uploads/public/682/32e/b41/68232eb418fd2375710109.jpeg" alt="Foto Profil Ahmad Sahroni">
+    <h1>Ahmad Sahroni</h1>
+
+    <div class="links">
+      <a href="https://instagram.com/simon_pyo" target="_blank">📸 Instagram</a>
+    </div>
+
+    <button class="theme-toggle" id="themeBtn">🌙 Mode Gelap</button>
+
+    <footer>© 2025 Ahmad Sahroni</footer>
+  </div>
+
+  <script>
+    const btn = document.getElementById('themeBtn');
+    let dark = true;
+
+    btn.addEventListener('click', () => {
+      dark = !dark;
+      if (!dark) {
+        document.documentElement.style.setProperty('--bg', 'radial-gradient(circle at top left, #e2e8f0, #f8fafc 70%, #ffffff)');
+        document.documentElement.style.setProperty('--card-bg', 'rgba(255,255,255,0.9)');
+        document.documentElement.style.setProperty('--text', '#0f172a');
+        document.documentElement.style.setProperty('--muted', '#475569');
+        document.documentElement.style.setProperty('--accent', '#0ea5e9');
+        document.documentElement.style.setProperty('--accent-hover', '#0284c7');
+        btn.textContent = '☀️ Mode Terang';
+      } else {
+        document.documentElement.style.setProperty('--bg', 'radial-gradient(circle at top left, #0f172a, #1e293b 60%, #020617)');
+        document.documentElement.style.setProperty('--card-bg', 'rgba(30,41,59,0.75)');
+        document.documentElement.style.setProperty('--text', '#e2e8f0');
+        document.documentElement.style.setProperty('--muted', '#94a3b8');
+        document.documentElement.style.setProperty('--accent', '#06b6d4');
+        document.documentElement.style.setProperty('--accent-hover', '#0ea5e9');
+        btn.textContent = '🌙 Mode Gelap';
+      }
+    });
+  </script>
+</body>
+</html>
